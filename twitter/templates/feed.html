@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block title %}Feed{% endblock %}
+{% block content %}
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <main class="mdl-layout__content">
+      <section class="section--center mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--12-col">
+          <form id="search" action="#">
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" placeholder="Search..." autofocus>
+              <label class="mdl-textfield__label" for="search"></label>
+            </div>
+          </form>
+        </div>
+        <ul id="errors" class="demo-list-icon mdl-list"></ul>
+      </section>
+      <div class="mdl-layout__tab-panel is-active" id="overview">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+              <h4 class="mdl-cell mdl-cell--12-col">tweetly</h4>
+              <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                <div id="profile_image_url" class="section__circle-container__circle mdl-color--primary"></div>
+              </div>
+              <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <h5 id="name">Hello, World!</h5>
+                <p id="text">Type a Twitter handle in the search bar above to view their latest tweet!</p>
+              </div>
+            </div>
+            <div class="mdl-card__actions">
+              <a id="url" href="#" class="mdl-button">Read more</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+{% endblock %}
+{% block javascripts %}
+  {{ super() }}
+  <script type="text/javascript" src="{{ url_for('static', filename='fetch.js') }}"></script>
+{% endblock %}

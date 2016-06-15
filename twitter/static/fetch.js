@@ -1,12 +1,12 @@
-var ul = document.getElementById('errors');
-ul.style.display = 'none';
+var errors = document.getElementById('errors');
+errors.style.display = 'none';
 var search = document.getElementById('search');
 search.addEventListener('submit', getStatuses);
 function getStatuses(event) {
   event.preventDefault();
-  ul.style.display = 'none';
-  if (ul.hasChildNodes()) {
-    ul.removeChild(ul.childNodes[0]);
+  errors.style.display = 'none';
+  if (errors.hasChildNodes()) {
+    errors.removeChild(errors.childNodes[0]);
   }
   var input = {
     count: 1,
@@ -40,16 +40,18 @@ function getStatuses(event) {
     }
   }
   function fail(jqXHR) {
-    var errors = [];
+    var errorsArray = [];
     var i;
-    if (jqXHR.status === 404) {
+    if (jqXHR.responseJSON.hasOwnProperty('errors')) {
+      // This represents an array of error messages.
       for (i = 0; i < jqXHR.responseJSON.errors.length; i++) {
-        errors.push(jqXHR.responseJSON.errors[i].message);
+        errorsArray.push(jqXHR.responseJSON.errors[i].message);
       }
-    } else if (jqXHR.status === 401) {
-      errors.push(jqXHR.responseJSON.error);
+    } else if (jqXHR.responseJSON.hasOwnProperty('error')) {
+      // This represents a singleton error message.
+      errorsArray.push(jqXHR.responseJSON.error);
     }
-    for (i = 0; i < errors.length; i++) {
+    for (i = 0; i < errorsArray.length; i++) {
       var node = document.createElement('li');
       node.className = 'mdl-list__item';
       var spanNode = document.createElement('span');
@@ -57,12 +59,12 @@ function getStatuses(event) {
       var iconNode = document.createElement('i');
       iconNode.className = 'material-icons mdl-list__item-icon';
       iconNode.innerHTML = 'error';
-      var textNode = document.createTextNode(errors[i]);
+      var textNode = document.createTextNode(errorsArray[i]);
       spanNode.appendChild(iconNode);
       spanNode.appendChild(textNode);
       node.appendChild(spanNode);
-      ul.appendChild(node);
+      errors.appendChild(node);
     }
-    ul.style.display = 'block';
+    errors.style.display = 'block';
   }
 }

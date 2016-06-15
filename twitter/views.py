@@ -78,7 +78,6 @@ def fetch():
 @app.route('/')
 @login_required
 def hello():
-    errors = []
-    return flask.render_template('feed.html', errors=errors)
+    return flask.render_template('feed.html')
 
 app.secret_key = os.urandom(24)

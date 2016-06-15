@@ -3,17 +3,19 @@
 {% block content %}
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <main class="mdl-layout__content">
-      <section class="section--center mdl-grid mdl-grid--no-spacing">
-        <div class="mdl-cell mdl-cell--12-col">
-          <form id="search" action="#">
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" placeholder="Search..." autofocus>
-              <label class="mdl-textfield__label" for="search"></label>
-            </div>
-          </form>
-        </div>
-        <ul id="errors" class="demo-list-icon mdl-list"></ul>
-      </section>
+      <div class="mdl-layout__tab-panel is-active">
+        <section class="section--center mdl-grid mdl-grid--no-spacing">
+          <div class="mdl-cell mdl-cell--12-col">
+            <form id="search" action="#">
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" placeholder="Search..." autofocus>
+                <label class="mdl-textfield__label" for="search"></label>
+              </div>
+            </form>
+          </div>
+          <ul id="errors" class="demo-list-icon mdl-list"></ul>
+        </section>
+      </div>
       <div class="mdl-layout__tab-panel is-active" id="overview">
         <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
           <div class="mdl-card mdl-cell mdl-cell--12-col">

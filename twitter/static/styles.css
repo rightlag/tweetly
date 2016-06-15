@@ -206,3 +206,6 @@ html, body {
 .mdl-demo .mdl-menu__container {
   z-index: 99;
 }
+.mdl-textfield {
+  width: 100%;
+}

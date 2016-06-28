@@ -15,12 +15,12 @@ Then, set the following environment variables:
 
 | Variable        | Description                                                  | Required |
 |-----------------|--------------------------------------------------------------|----------|
-| CONSUMER_KEY    | Your Twitter Consumer Key                                    | Yes      |
-| CONSUMER_SECRET | Your Twitter Consumer Secret                                 | Yes      |
-| MYSQL_USER      | The MySQL database user                                      | Yes      |
-| MYSQL_PASSWORD  | The password for the MySQL database user                     | Yes      |
-| MYSQL_DB        | The name of the MySQL database                               | Yes      |
-| PORT            | The server port for the application to run on (default 3000) | No       |
+| `CONSUMER_KEY`    | Your Twitter Consumer Key                                    | **Yes**      |
+| `CONSUMER_SECRET` | Your Twitter Consumer Secret                                 | **Yes**      |
+| `MYSQL_USER`      | The MySQL database user                                      | **Yes**      |
+| `MYSQL_PASSWORD`  | The password for the MySQL database user                     | Yes      |
+| `MYSQL_DB`        | The name of the MySQL database                               | **Yes**      |
+| `PORT`            | The server port for the application to run on (default 3000) | **No**       |
 
 After the environment variables are set, execute the `.sql` script:
 

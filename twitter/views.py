@@ -9,8 +9,6 @@ from functools import wraps
 from twitter import app
 from twitter import mysql
 
-CONSUMER_KEY = os.environ['CONSUMER_KEY']
-CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
 BASE_URL = 'https://api.twitter.com/1.1'
 
 
@@ -29,7 +27,9 @@ def authenticate():
     data = {
         'grant_type': 'client_credentials',
     }
-    bearer = (CONSUMER_KEY + ':' + CONSUMER_SECRET).encode('utf-8')
+    bearer = (
+        '%s:%s' % (app.config['CONSUMER_KEY'], app.config['CONSUMER_SECRET'])
+    ).encode('utf-8')
     encoded = b64encode(bearer)
     # `decode` method is required to convert byte stream to string.
     headers = {
